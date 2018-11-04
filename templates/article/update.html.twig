@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create{% endblock %}
+
+{% block body %}
+
+    <form class="form-signin" action="{{ path('app_admin_article_update', {slug: article.slug}) }}"  method="post">
+
+
+        <h1 class="h3 mb-3 font-weight-normal">Update ARTICLE - {{ article.title }}</h1>
+        <br>
+        {{ article.title }}
+        <input type="text" name="title" id="title" class="form-control" placeholder="title" required>
+        <br>
+        {{ article.content }}
+        <input type="text" name="content" id="content" class="form-control" placeholder="content" required>
+        <br>
+        {{ article.author }}
+        <input type="text" name="author" id="author" class="form-control" placeholder="author" required>
+
+        {#<input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >#}
+
+        {#<div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>#}
+        <a href="#">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Sign in
+            </button>
+        </a>
+    </form>
+{% endblock %}
